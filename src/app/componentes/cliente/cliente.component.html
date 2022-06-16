@@ -1,0 +1,61 @@
+<app-inicio></app-inicio>
+
+<div class="container">
+    <div class="test-center">
+        <p> Registro de cliente </p>
+        <hr>
+        <div class="card text-center" style="padding: 40px;" >
+            <br>
+            <form [formGroup]="register"(ngSubmit)=registrar()>
+                <div class="row" >
+                    <div class="form-goup col-12">
+                        <input type="text" maxlength="8" class="form-control" placeholder="identificacion" formControlName="id">
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('id')?.hasError('required') && register.get('id')?.touched">
+                            La identificacion <strong>es requerida</strong>
+                        </span>
+                    </div>
+                    <div class="form-goup col-12">
+                        <input type="text" maxlength="8" class="form-control" placeholder="Nombres" formControlName="nombres">
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('nombres')?.hasError('required') && register.get('nombres')?.touched">
+                            Los nombres <strong>son requeridos</strong>
+                        </span>
+                    </div>
+                    <div class="form-goup col-12">
+                        <input type="text" maxlength="8" class="form-control" placeholder="Apellidos" formControlName="apellidos">
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('apellidos')?.hasError('required') && register.get('apellidos')?.touched">
+                            Los apellidos <strong>son requeridos</strong>
+                        </span>
+                    </div>
+                    <div class="form-goup col-12">
+                        <input type="text" maxlength="8" class="form-control" placeholder="Correo" formControlName="correo">
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('correo')?.hasError('required') && register.get('correo')?.touched">
+                            el correo <strong>es requerido</strong>
+                        </span>
+                    </div>
+                    <div class="form-goup col-12">
+                        <input type="text" maxlength="8" class="form-control" placeholder="Direccion del cliente" formControlName="direccion">
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('direccion')?.hasError('required') && register.get('direccion')?.touched">
+                            La direccion <strong>es requerido</strong>
+                        </span>
+                    </div>
+                    <div class="form-goup col-12">
+                        <input type="text" maxlength="8" class="form-control" placeholder="Telefono del cliente" formControlName="telefono">
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('telefono')?.hasError('required') && register.get('telefono')?.touched">
+                            El telefono <strong>es requerido</strong>
+                        </span>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-xl mt-4" type="submit" [disabled]="register.invalid" >Guardar</button>
+            </form>
+            <button class="btn btn-primary btn-xl mt-4" routerLink="/clientes" >Consultar</button>
+        </div>
+
+    </div>
+</div>
+

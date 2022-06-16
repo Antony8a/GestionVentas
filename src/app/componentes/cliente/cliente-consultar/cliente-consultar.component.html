@@ -1,0 +1,112 @@
+<app-inicio></app-inicio>
+<div class="container">
+    <div class="test-center">
+        <p> Clientes registrados </p>
+        <hr>
+        <div class="card text-center" style="padding: 40px;">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Identificacion</th>
+                        <th>Nombres</th>
+                        <th>Apellidos</th>
+                        <th>Correo</th>
+                        <th>Direccion</th>
+                        <th>Telefono</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let cliente of clientes ; let i = index">
+                        <td>{{cliente.id}}</td>
+                        <td>{{cliente.nombres}}</td>
+                        <td>{{cliente.apellidos}}</td>
+                        <td>{{cliente.correo}}</td>
+                        <td>{{cliente.direccion}}</td>
+                        <td>{{cliente.telefono}}</td>
+                        <td>
+                            <svg (click)="Eliminar(cliente.id)" style="cursor:pointer;"
+                                xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor"
+                                class="bi bi-person-x" viewBox="0 0 16 16">
+
+                                <path
+                                    d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                                <path fill-rule="evenodd"
+                                    d="M12.146 5.146a.5.5 0 0 1 .708 0L14 6.293l1.146-1.147a.5.5 0 0 1 .708.708L14.707 7l1.147 1.146a.5.5 0 0 1-.708.708L14 7.707l-1.146 1.147a.5.5 0 0 1-.708-.708L13.293 7l-1.147-1.146a.5.5 0 0 1 0-.708z" />
+                            </svg>
+                            <svg (click)="show=!show" (click)="atraparCliente(cliente)"
+                                style="margin-left: 15px; cursor:pointer;" xmlns="http://www.w3.org/2000/svg" width="22"
+                                height="22" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd"
+                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                            </svg>
+
+                        </td>
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+
+</div>
+
+<div  *ngIf="show"  class="container">
+    <div class="test-center">
+        <p> Actualizar cliente </p>
+        <hr>
+        <div class="card text-center" style="padding: 40px;" >
+            <br>
+            <form [formGroup]="register"(ngSubmit)=Actualizar(idAtrapada)>
+                <div class="row" >
+                    <div class="form-goup col-12">
+                        <label> Identificacion: <strong>{{idAtrapada}}</strong> </label>
+                        
+                    </div>
+                    <div class="form-goup col-12">
+                        <input type="text" maxlength="15" class="form-control" placeholder="Nombres" formControlName="nombres" value={{nombreAtrapado}}>
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('nombres')?.hasError('required') && register.get('nombres')?.touched">
+                            Los nombres <strong>son requeridos</strong>
+                        </span>
+                    </div>
+                    <div class="form-goup col-12">
+                        <input type="text" maxlength="15" class="form-control" placeholder="Apellidos" formControlName="apellidos" value={{apellidoAptrapado}}>
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('apellidos')?.hasError('required') && register.get('apellidos')?.touched">
+                            Los apellidos <strong>son requeridos</strong>
+                        </span>
+                    </div>
+                    <div class="form-goup col-12">
+                        <input type="text" maxlength="15" class="form-control" placeholder="Correo" formControlName="correo"value={{correoAtrapado}}>
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('correo')?.hasError('required') && register.get('correo')?.touched">
+                            el correo <strong>es requerido</strong>
+                        </span>
+                    </div>
+                    <div class="form-goup col-12">
+                        <input type="text" maxlength="15" class="form-control" placeholder="Direccion del cliente" formControlName="direccion"value={{direccionAtrapado}}>
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('direccion')?.hasError('required') && register.get('direccion')?.touched">
+                            La direccion <strong>es requerido</strong>
+                        </span>
+                    </div>
+                    <div class="form-goup col-12">
+                        <input type="text" maxlength="15" class="form-control" placeholder="Telefono del cliente" formControlName="telefono"value={{telefonoAtrapado}}>
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('telefono')?.hasError('required') && register.get('telefono')?.touched">
+                            El telefono <strong>es requerido</strong>
+                        </span>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-xl mt-4" type="submit" [disabled]="register.invalid" >Actualizar</button>
+            </form>
+            
+        </div>
+    </div>
+</div>

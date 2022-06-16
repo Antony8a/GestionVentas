@@ -1,0 +1,41 @@
+p {
+    font-size: 2.3em;
+    color: #000000;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 3%;
+    text-align: center;
+}
+
+hr{
+    border-width: 3px;
+    max-width: 100%;
+    border-color: #525252;
+
+}
+
+.btn-xl{
+    background-color: #333333;
+    border-color: #000000;
+    border-width: 2px;
+    margin: 10px;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+}
+
+.btn-xl:hover{
+    background-color: #525252;
+    border-radius: #525252;
+}
+.col-12{
+    margin-top:10px;
+}
+
+
+
+
+h3{
+    font-family: 'Rowdies', cursive;
+}

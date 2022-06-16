@@ -1,0 +1,73 @@
+<app-inicio></app-inicio>
+
+<div class="container">
+    <div class="test-center">
+        <p> Registro de venta </p>
+        <hr>
+        <div class="card text-center" style="padding: 40px;" >
+            <br>
+            <form [formGroup]="register"(ngSubmit)=registrar()>
+                <div class="row" >
+                    <div class="form-goup col-ml-2">
+                        <input type="text" maxlength="8" class="form-control" placeholder="Fecha de entrega" formControlName="fechaVenta">
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('fechaVenta')?.hasError('required') && register.get('fechaVenta')?.touched">
+                            La fecha de la venta <strong>es requerida</strong>
+                        </span>
+                    </div>
+                    <div class="form-goup col-ml-2">
+                        <input type="text" maxlength="8" class="form-control" placeholder="Productos" formControlName="productosVendidos">
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('productosVendidos')?.hasError('required') && register.get('productosVendidos')?.touched">
+                            Los productos <strong>son requeridos</strong>
+                        </span>
+                    </div>
+                    <div class="form-goup col-ml-2">
+                        <input type="text" maxlength="8" class="form-control" placeholder="Cantidad" formControlName="cantidad">
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('cantidad')?.hasError('required') && register.get('cantidad')?.touched">
+                            La cantidad <strong>es requerida</strong>
+                        </span>
+                    </div>
+                    <div class="form-goup col-ml-2">
+                        <input type="text" maxlength="8" class="form-control" placeholder="Precio Unitario" formControlName="precioUnitario">
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('precioUnitario')?.hasError('required') && register.get('precioUnitario')?.touched">
+                            el precio unitario <strong>es requerido</strong>
+                        </span>
+                    </div>
+                    <div class="form-goup col-ml-2">
+                        <input type="text" maxlength="8" class="form-control" placeholder="Iva" formControlName="iva">
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('iva')?.hasError('required') && register.get('iva')?.touched">
+                            El iva<strong> es requerido</strong>
+                        </span>
+                    </div>
+                    <div class="form-goup col-ml-2">
+                        <input type="text" maxlength="8" class="form-control" placeholder="Fecha de entrega" formControlName="fechaEntrega">
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('fechaEntrega')?.hasError('required') && register.get('fechaEntrega')?.touched">
+                            La fecha de entrega <strong>es requerido</strong>
+                        </span>
+                    </div>
+                    <div class="form-goup col-ml-2">
+                        <input type="text" maxlength="8" class="form-control" placeholder="Direccion de entrega" formControlName="direccionEntrega">
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('direccionEntrega')?.hasError('required') && register.get('direccionEntrega')?.touched">
+                            La direccion de entrega <strong>es requerido</strong>
+                        </span>
+                    </div>
+                    <div class="form-goup col-ml-2">
+                        <input type="text" maxlength="8" class="form-control" placeholder="Cliente" formControlName="cliente">
+                        <span class="text-danger ml-2"
+                            *ngIf="register.get('cliente')?.hasError('required') && register.get('cliente')?.touched">
+                            El cliente <strong>es requerido</strong>
+                        </span>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-xl mt-4" type="submit" [disabled]="register.invalid" >Guardar</button>
+            </form>
+        </div>
+
+    </div>
+</div>

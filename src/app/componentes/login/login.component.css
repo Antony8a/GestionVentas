@@ -1,0 +1,21 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    
+}
+
+.btn-xl{
+    background-color: #333333;
+    border-color: #000000;
+    border-width: 2px;
+    margin: 10px;
+    padding: 1rem 2rem;
+    border-radius: 100px;
+}
+
+.btn-xl:hover{
+    background-color: #525252;
+    border-radius: #525252;
+}
